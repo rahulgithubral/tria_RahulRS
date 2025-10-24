@@ -13,39 +13,39 @@ const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
       whileHover={{ y: -2 }}
-      className="card p-6 hover:shadow-lg transition-all duration-200"
+      className="bg-white p-6 rounded-3xl shadow-lg transition-all duration-200 hover:shadow-xl"
     >
-      <div className="flex items-center space-x-4">
-        <div className="flex-shrink-0">
+      {/* GRID LAYOUT: Photo centered on top, details below */}
+      <div className="flex flex-col items-center text-center">
+        {/* Avatar at top center */}
+        <div className="mb-4">
           {contact.avatar ? (
             <img
               src={contact.avatar}
               alt={contact.name}
-              className="w-12 h-12 rounded-full object-cover"
+              className="w-20 h-20 rounded-full object-cover"
             />
           ) : (
-            <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center">
-              <span className="text-white font-semibold text-lg">
+            <div className="w-20 h-20 rounded-full bg-blue-500 flex items-center justify-center">
+              <span className="text-white font-semibold text-2xl">
                 {contact.name.charAt(0).toUpperCase()}
               </span>
             </div>
           )}
         </div>
-        
-        <div className="flex-1 min-w-0">
-          <h3 className="text-lg font-semibold text-gray-900 truncate">
+
+        {/* Contact details below */}
+        <div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-1">
             {contact.name}
           </h3>
-          <p className="text-sm text-gray-600 truncate">
-            {contact.email}
-          </p>
-          <p className="text-sm text-gray-500 truncate">
-            {contact.phone}
-          </p>
+          <p className="text-sm text-gray-600 mb-1">{contact.email}</p>
+          <p className="text-sm text-gray-600">{contact.phone}</p>
         </div>
-        
-        <div className="flex-shrink-0">
-          <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+
+        {/* Status indicator */}
+        <div className="mt-3">
+          <span className="inline-block w-2 h-2 bg-green-500 rounded-full"></span>
         </div>
       </div>
     </motion.div>
