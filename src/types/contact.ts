@@ -4,6 +4,7 @@ export interface Contact {
   email: string;
   phone: string;
   avatar?: string;
+    createdAt: number;
 }
 
 export interface ContactFormData {
