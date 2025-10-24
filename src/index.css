@@ -53,16 +53,29 @@ body::after {
   background: transparent !important;
 }
 
-/* Make contact cards dark with enhanced shadows */
+/* ALIGN SEARCH AND ADD CONTACT BUTTON HORIZONTALLY */
+.flex-col.sm\:flex-row {
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 1rem !important;
+}
+
+/* Make contact cards GRID LAYOUT - Photo centered on top */
 .bg-white {
   background: rgba(40, 40, 45, 0.95) !important;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  /* TILES HAVE SHADOW BEFORE HOVERING */
   box-shadow: 
     0 10px 30px rgba(0, 0, 0, 0.5),
     0 1px 8px rgba(0, 0, 0, 0.3) !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   position: relative;
+  /* GRID LAYOUT - items centered */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
 }
 
 /* Add colorful top border on hover */
@@ -83,14 +96,15 @@ body::after {
   opacity: 1;
 }
 
-/* Enhanced hover effect for contact cards */
+/* SHADOW INCREASES ON HOVER (not appears from nothing) */
 .bg-white:hover {
   transform: translateY(-8px) scale(1.02) !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
+  /* INCREASED SHADOW ON HOVER */
   box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.7),
-    0 0 40px rgba(217, 70, 239, 0.2),
-    0 0 20px rgba(14, 165, 233, 0.2) !important;
+    0 25px 70px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(217, 70, 239, 0.3),
+    0 0 25px rgba(14, 165, 233, 0.25) !important;
 }
 
 /* Make text light colored on dark cards */
@@ -108,7 +122,7 @@ body::after {
   color: #d4d4d8 !important;
 }
 
-/* Avatar enlarge effect on hover */
+/* Photo centered on top - enlarge on hover */
 .bg-white img,
 .bg-white .bg-blue-500,
 .bg-white .bg-cyan-500 {
@@ -116,8 +130,10 @@ body::after {
   box-shadow: 
     0 8px 25px rgba(0, 0, 0, 0.4),
     0 0 0 4px rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
 }
 
+/* PHOTO ENLARGES ON HOVER */
 .bg-white:hover img,
 .bg-white:hover .bg-blue-500,
 .bg-white:hover .bg-cyan-500 {
@@ -128,12 +144,13 @@ body::after {
     0 0 30px rgba(217, 70, 239, 0.4) !important;
 }
 
-/* Button styling - keep in box */
+/* Button styling with box */
 .btn-primary,
 .bg-blue-600 {
   background: linear-gradient(135deg, #d946ef 0%, #a855f7 100%) !important;
   box-shadow: 0 4px 15px rgba(217, 70, 239, 0.4) !important;
   transition: all 0.3s ease !important;
+  white-space: nowrap !important;
 }
 
 .btn-primary:hover,
@@ -159,6 +176,7 @@ input {
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   color: #ffffff !important;
   backdrop-filter: blur(10px);
+  flex: 1 !important;
 }
 
 input::placeholder {
@@ -171,9 +189,16 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(217, 70, 239, 0.1) !important;
 }
 
-/* Status indicator */
+/* Status indicator with glow */
 .bg-green-500 {
   box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+}
+
+/* Grid layout for contacts */
+.grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+  gap: 2rem !important;
 }
 
 /* Staggered animations */
