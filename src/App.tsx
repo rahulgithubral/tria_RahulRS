@@ -44,8 +44,7 @@ const App: React.FC = () => {
           transition={{ delay: 0.1 }}
           className="mb-8"
         >
-          <div className="flex flex-col sm:flex-row gap-4 items-center">
-            <div className="flex-1">
+          <div className="flex flex-row gap-4 items-center">            <div className="flex-1">
               <SearchBar />
             </div>
             <motion.button
