@@ -81,7 +81,7 @@ body {
 /* PHOTO HOVER EFFECT - Pops up when hovered! */
 .contact-avatar {
   @apply relative w-16 h-16 rounded-full;
-  @apply border-3 border-cyan-200 shadow-md;
+  @apply border-2 border-cyan-200 shadow-md;
   @apply transition-all duration-300;
   @apply flex-shrink-0;
 }
