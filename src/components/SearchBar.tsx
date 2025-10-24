@@ -16,10 +16,10 @@ const SearchBar: React.FC = () => {
   }, [localQuery, debouncedSearch]);
 
   return (
-    <div className="relative mb-6">
+    <div className="relative">
       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
         <svg
-          className="h-5 w-5 text-gray-400"
+          className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -34,10 +34,10 @@ const SearchBar: React.FC = () => {
       </div>
       <input
         type="text"
-        placeholder="Search contacts by name..."
+        placeholder="Search contacts..."
         value={localQuery}
         onChange={(e) => setLocalQuery(e.target.value)}
-        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-gray-900 placeholder-gray-500"
+        className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-gray-900 placeholder-gray-500 text-sm sm:text-base"
       />
     </div>
   );
