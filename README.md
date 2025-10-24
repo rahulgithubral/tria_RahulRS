@@ -222,8 +222,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Rahul RS**
-- GitHub: [@yourusername](https://github.com/rahulgithubral)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/rahulrsiitkgp)
+- GitHub: [@rahulgithubral](https://github.com/rahulgithubral)
+- LinkedIn: [Rahul R S ](https://linkedin.com/in/rahulrsiitkgp)
 
 ---
 
