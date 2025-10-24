@@ -48,7 +48,7 @@ const ContactList: React.FC = () => {
       </motion.div>
       
       <AnimatePresence>
-                <div className="contacts-grid">
+                <div className="grid grid-cols-2 gap-6">
         {filteredContacts.map((contact, index) => (
           <motion.div
             key={contact.id}
