@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* FORCE REBUILD - Updated for Tria recruitment */
 
 /* Import modern fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -12,17 +11,33 @@
   }
 }
 
-/* Fresh gradient background with teal/cyan theme */
+/* Beautiful gradient background with pattern */
 body {
-  @apply bg-gradient-to-br from-cyan-50 via-teal-50 to-emerald-100;
+  @apply bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50;
   background-attachment: fixed;
   min-height: 100vh;
+  position: relative;
 }
 
-/* Header with modern styling */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Header with glassmorphism */
 .header-title {
   @apply text-5xl font-bold text-transparent bg-clip-text;
-  background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 50%, #3b82f6 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   letter-spacing: -0.02em;
 }
 
@@ -30,30 +45,36 @@ body {
   @apply text-base font-medium text-slate-600 mt-2;
 }
 
-/* Search bar with modern styling */
+/* Search bar and Add button container */
+.search-container {
+  @apply flex items-center gap-4 w-full max-w-4xl mx-auto;
+}
+
+/* Search bar with glass effect */
 .search-input {
-  @apply w-full pl-12 pr-6 py-3.5 text-base font-medium;
-  @apply bg-white/90 backdrop-blur-sm border-2 border-cyan-200/50;
-  @apply rounded-xl shadow-md;
-  @apply focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400;
+  @apply w-full pl-12 pr-6 py-4 text-base font-medium;
+  @apply bg-white/80 backdrop-blur-lg;
+  @apply border-2 border-purple-200/50;
+  @apply rounded-2xl shadow-lg shadow-purple-100/50;
+  @apply focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400;
   @apply transition-all duration-300;
-  @apply hover:bg-white hover:border-cyan-300;
 }
 
 .search-icon {
   @apply absolute left-4 top-1/2 transform -translate-y-1/2;
-  @apply text-cyan-500 w-5 h-5;
+  @apply text-purple-400 w-5 h-5;
 }
 
-/* Add Contact Button - Fresh cyan/teal gradient */
+/* Add Contact Button - Aligned with search */
 .btn-add-contact {
-  @apply px-6 py-3.5 text-base font-bold text-white;
-  @apply bg-gradient-to-r from-cyan-500 to-teal-500;
-  @apply rounded-xl shadow-lg shadow-cyan-500/30;
-  @apply hover:shadow-xl hover:shadow-cyan-500/50;
-  @apply transform hover:scale-105 hover:-translate-y-0.5;
-  @apply transition-all duration-300;
-  @apply flex items-center gap-2;
+  @apply px-8 py-4 text-base font-bold text-white;
+  @apply bg-gradient-to-r from-purple-600 via-purple-500 to-pink-500;
+  @apply rounded-2xl shadow-xl shadow-purple-300/50;
+  @apply hover:shadow-2xl hover:shadow-purple-400/60;
+  @apply hover:scale-105;
+  @apply transform transition-all duration-300;
+  @apply flex items-center gap-3;
+  @apply whitespace-nowrap;
 }
 
 /* Contact counter */
@@ -61,177 +82,86 @@ body {
   @apply text-slate-600 font-semibold text-sm mb-6 px-2;
 }
 
-/* PHONE-LIKE GRID LAYOUT - Key Change! */
+/* TILES/CARDS GRID LAYOUT - Responsive and auto-arranging */
 .contacts-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
-  @apply w-full max-w-6xl mx-auto px-4;
+  @apply grid gap-6;
+  @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  @apply w-full max-w-7xl mx-auto px-4;
+  @apply auto-rows-auto;
 }
 
-/* COMPACT PHONE-STYLE CONTACT CARDS */
+/* TILE-STYLE CONTACT CARDS */
 .contact-card {
-  @apply relative bg-white/80 backdrop-blur-sm;
-  @apply rounded-2xl shadow-md border border-cyan-100/50;
-  @apply p-4 transition-all duration-300;
-  @apply hover:shadow-xl hover:shadow-cyan-500/10 hover:-translate-y-1;
-  @apply hover:border-cyan-300/50;
+  @apply relative bg-white/90 backdrop-blur-xl;
+  @apply rounded-3xl overflow-hidden;
+  @apply border-2 border-purple-100/50;
+  @apply shadow-lg shadow-purple-100/30;
+  @apply hover:shadow-2xl hover:shadow-purple-200/50;
+  @apply hover:border-purple-300/70;
+  @apply transition-all duration-500 ease-out;
   @apply cursor-pointer;
-  @apply flex items-center gap-4;
+  @apply transform hover:scale-[1.03];
+  @apply hover:-translate-y-2;
+  animation: fadeInUp 0.6s ease-out backwards;
 }
 
-/* PHOTO HOVER EFFECT - Pops up when hovered! */
+/* Avatar container with enhanced hover */
 .contact-avatar {
-  @apply relative w-16 h-16 rounded-full;
-  @apply border-2 border-cyan-200 shadow-md;
-  @apply transition-all duration-300;
-  @apply flex-shrink-0;
+  @apply relative w-24 h-24 mx-auto mb-4;
+  @apply rounded-full border-4 border-purple-200;
+  @apply shadow-lg shadow-purple-200/50;
+  @apply transition-all duration-500 ease-out;
+  @apply overflow-hidden;
 }
 
 .contact-card:hover .contact-avatar {
-  @apply scale-150 z-50 shadow-2xl border-cyan-400;
-  transform: scale(1.8) translateY(-10px);
+  @apply scale-125 border-purple-400;
+  @apply shadow-2xl shadow-purple-300/70;
+  @apply -translate-y-2;
+  transform-origin: center;
 }
 
 .contact-avatar img {
-  @apply w-full h-full rounded-full object-cover;
-  @apply transition-all duration-300;
+  @apply w-full h-full object-cover;
+  @apply transition-transform duration-500;
 }
 
-/* Contact info section */
+.contact-card:hover .contact-avatar img {
+  @apply scale-110;
+}
+
+/* Contact card content */
 .contact-info {
-  @apply flex-1 min-w-0;
+  @apply text-center p-6 pt-2;
 }
 
 .contact-name {
-  @apply text-lg font-bold text-slate-800 mb-0.5 truncate;
+  @apply text-xl font-bold text-gray-800 mb-2;
   @apply transition-colors duration-300;
 }
 
 .contact-card:hover .contact-name {
-  @apply text-cyan-600;
+  @apply text-purple-600;
 }
 
 .contact-email {
-  @apply text-sm text-slate-600 font-medium truncate block;
+  @apply text-sm text-gray-600 mb-1;
+  @apply truncate;
 }
 
 .contact-phone {
-  @apply text-sm text-slate-500 font-medium;
+  @apply text-sm text-gray-500;
 }
 
-/* Status indicator with fresh green color */
-.status-indicator {
+/* Status indicator */
+.contact-status {
   @apply absolute top-4 right-4;
-  @apply w-3 h-3 bg-emerald-500 rounded-full;
-  @apply border-2 border-white shadow-sm;
-  @apply flex-shrink-0;
+  @apply w-3 h-3 rounded-full;
+  @apply bg-green-400 border-2 border-white;
+  @apply shadow-lg shadow-green-200;
 }
 
-/* No contacts state */
-.no-contacts {
-  @apply text-center py-16 px-8;
-  @apply bg-white/60 backdrop-blur-sm rounded-3xl;
-  @apply border border-cyan-100 shadow-lg;
-}
-
-/* Loading spinner */
-.loader {
-  @apply flex justify-center items-center py-12;
-}
-
-.loading-spinner {
-  @apply w-12 h-12 border-4 border-cyan-200 border-t-cyan-600;
-  @apply rounded-full animate-spin;
-}
-
-/* Modal styling with fresh theme */
-.modal-overlay {
-  @apply fixed inset-0 bg-black/50 backdrop-blur-sm;
-  @apply flex items-center justify-center p-4;
-  @apply z-50;
-}
-
-.modal-content {
-  @apply bg-white rounded-3xl shadow-2xl;
-  @apply border border-cyan-100 p-8 w-full max-w-md;
-  @apply transform transition-all duration-300;
-}
-
-/* Form elements */
-.form-group {
-  @apply mb-5;
-}
-
-.form-label {
-  @apply block text-sm font-bold text-slate-700 mb-2;
-}
-
-.form-input {
-  @apply w-full px-4 py-3 text-base font-medium;
-  @apply bg-white border-2 border-slate-200;
-  @apply rounded-xl;
-  @apply focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400;
-  @apply transition-all duration-300;
-}
-
-/* Button variations */
-.btn-primary {
-  @apply px-8 py-3 text-base font-bold text-white;
-  @apply bg-gradient-to-r from-cyan-500 to-teal-500;
-  @apply rounded-xl shadow-lg;
-  @apply hover:shadow-xl;
-  @apply transform hover:scale-105;
-  @apply transition-all duration-300;
-}
-
-.btn-secondary {
-  @apply px-8 py-3 text-base font-bold text-slate-700;
-  @apply bg-slate-100 border border-slate-200;
-  @apply rounded-xl;
-  @apply hover:bg-slate-200;
-  @apply transform hover:scale-105;
-  @apply transition-all duration-300;
-}
-
-/* Avatar badge for initials */
-.avatar-badge {
-  @apply w-16 h-16 rounded-full;
-  @apply bg-gradient-to-br from-cyan-400 to-teal-500;
-  @apply flex items-center justify-center;
-  @apply text-white font-bold text-xl;
-  @apply shadow-md;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .header-title {
-    @apply text-4xl;
-  }
-  
-  .contacts-grid {
-    @apply grid-cols-1;
-  }
-  
-  .contact-card {
-    @apply p-3.5;
-  }
-}
-
-/* Smooth entrance animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.contact-card {
-  animation: fadeInUp 0.5s ease-out backwards;
-}
-
+/* Staggered entrance animations */
 .contact-card:nth-child(1) { animation-delay: 0.05s; }
 .contact-card:nth-child(2) { animation-delay: 0.1s; }
 .contact-card:nth-child(3) { animation-delay: 0.15s; }
@@ -244,7 +174,7 @@ body {
 
 /* Modern scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -252,10 +182,25 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #0d9488 0%, #0891b2 100%);
+  background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
+  background-clip: padding-box;
+}
+
+/* Keyframe animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
