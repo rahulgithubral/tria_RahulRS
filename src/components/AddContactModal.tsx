@@ -67,26 +67,26 @@ const AddContactModal: React.FC<AddContactModalProps> = ({ isOpen, onClose }) =>
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
           onClick={onClose}
         >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            className="bg-white rounded-xl shadow-xl max-w-md w-full p-6"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-gray-900">Add New Contact</h2>
-              <button
-                onClick={onClose}
-                className="text-gray-400 hover:text-gray-600 transition-colors"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          className="bg-white rounded-xl shadow-xl max-w-md w-full mx-4 p-4 sm:p-6 max-h-[90vh] overflow-y-auto"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex items-center justify-between mb-4 sm:mb-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Add New Contact</h2>
+            <button
+              onClick={onClose}
+              className="text-gray-400 hover:text-gray-600 transition-colors p-1"
+            >
+              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   Name
@@ -96,11 +96,11 @@ const AddContactModal: React.FC<AddContactModalProps> = ({ isOpen, onClose }) =>
                   id="name"
                   value={formData.name}
                   onChange={(e) => handleChange('name', e.target.value)}
-                  className={`input-field ${errors.name ? 'border-red-500 focus:ring-red-500' : ''}`}
+                  className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base ${errors.name ? 'border-red-500 focus:ring-red-500' : ''}`}
                   placeholder="Enter full name"
                 />
                 {errors.name && (
-                  <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+                  <p className="mt-1 text-xs sm:text-sm text-red-600">{errors.name}</p>
                 )}
               </div>
 
@@ -113,11 +113,11 @@ const AddContactModal: React.FC<AddContactModalProps> = ({ isOpen, onClose }) =>
                   id="email"
                   value={formData.email}
                   onChange={(e) => handleChange('email', e.target.value)}
-                  className={`input-field ${errors.email ? 'border-red-500 focus:ring-red-500' : ''}`}
+                  className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base ${errors.email ? 'border-red-500 focus:ring-red-500' : ''}`}
                   placeholder="Enter email address"
                 />
                 {errors.email && (
-                  <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+                  <p className="mt-1 text-xs sm:text-sm text-red-600">{errors.email}</p>
                 )}
               </div>
 
@@ -130,25 +130,25 @@ const AddContactModal: React.FC<AddContactModalProps> = ({ isOpen, onClose }) =>
                   id="phone"
                   value={formData.phone}
                   onChange={(e) => handleChange('phone', e.target.value)}
-                  className={`input-field ${errors.phone ? 'border-red-500 focus:ring-red-500' : ''}`}
+                  className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base ${errors.phone ? 'border-red-500 focus:ring-red-500' : ''}`}
                   placeholder="Enter phone number"
                 />
                 {errors.phone && (
-                  <p className="mt-1 text-sm text-red-600">{errors.phone}</p>
+                  <p className="mt-1 text-xs sm:text-sm text-red-600">{errors.phone}</p>
                 )}
               </div>
 
-              <div className="flex space-x-3 pt-4">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-3 sm:pt-4">
                 <button
                   type="button"
                   onClick={onClose}
-                  className="btn-secondary flex-1"
+                  className="btn-secondary flex-1 py-2 sm:py-3 text-sm sm:text-base"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="btn-primary flex-1"
+                  className="btn-primary flex-1 py-2 sm:py-3 text-sm sm:text-base"
                 >
                   Add Contact
                 </button>
