@@ -4,7 +4,7 @@ A modern, responsive React application for managing contacts with real-time sear
 
 ## 🚀 Live Demo
 
-[View Live Demo on Vercel](https://tria-rahul-rs.vercel.app)
+[View Live Demo on Vercel](https://tria-rahul-rs-eta.vercel.app)
 ## 📋 Features
 
 - **Contact Management**: View, search, and add contacts
