@@ -197,8 +197,7 @@ input:focus {
 /* Grid layout for contacts */
 .grid {
   display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
-  gap: 2rem !important;
+  grid-template-columns: repeat(2, 1fr) !important;  gap: 2rem !important;
 }
 
 /* Staggered animations */
