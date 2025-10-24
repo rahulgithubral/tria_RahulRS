@@ -48,6 +48,7 @@ const ContactList: React.FC = () => {
       </motion.div>
       
       <AnimatePresence>
+                <div className="contacts-grid">
         {filteredContacts.map((contact, index) => (
           <motion.div
             key={contact.id}
@@ -59,6 +60,7 @@ const ContactList: React.FC = () => {
             <ContactCard contact={contact} />
           </motion.div>
         ))}
+                          </div>
       </AnimatePresence>
     </div>
   );
