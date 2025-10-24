@@ -22,12 +22,13 @@ export const useContactStore = create<ContactStore>((set, get) => ({
   isLoading: false,
   searchQuery: '',
   
-  setContacts: (contacts) => set({ contacts.sort((a, b) => parseInt(b.id) - parseInt(a.id)), filteredContacts: contacts }),
+  setContacts: (contacts) => set({ contacts: contacts.sort((a, b) => b.createdAt - a.createdAt), filteredContacts: contacts }),
   
   addContact: (contactData) => {
     const newContact: Contact = {
       ...contactData,
       id: Date.now().toString(),
+      createdAt: Date.now(),
       avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(contactData.name)}&background=3b82f6&color=ffffff&size=150`
     };
     
