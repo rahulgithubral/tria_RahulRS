@@ -9,12 +9,15 @@ interface ContactCardProps {
 const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      whileHover={{ y: -2 }}
-      className="bg-white p-6 rounded-3xl shadow-lg transition-all duration-200 hover:shadow-xl"
-    >
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.3 }}
+  whileHover={{ y: -2 }}
+  className="bg-white p-6 rounded-3xl shadow-lg transition-all duration-200 hover:shadow-xl relative overflow-hidden"
+>
+  {/* Add this gradient border element right after the opening tag */}
+  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 rounded-t-3xl" />
+
       {/* GRID LAYOUT: Photo centered on top, details below */}
       <div className="flex flex-col items-center text-center">
         {/* Avatar at top center */}
