@@ -44,20 +44,20 @@ const App: React.FC = () => {
           transition={{ delay: 0.1 }}
           className="mb-8"
         >
-          <div className="flex flex-row gap-4 items-center">            <div className="flex-1">
-              <SearchBar />
-            </div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setIsModalOpen(true)}
-              className="btn-primary flex items-center space-x-2 px-6 py-3"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-              </svg>
-              <span>Add Contact</span>
-            </motion.button>
+          <div className="flex items-center gap-4"> <div className="flex-1">
+            <SearchBar />
+          </div>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsModalOpen(true)}
+            className="btn-primary flex items-center space-x-2 px-6 h-12"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+            <span>Add Contact</span>
+          </motion.button>
           </div>
         </motion.div>
 
