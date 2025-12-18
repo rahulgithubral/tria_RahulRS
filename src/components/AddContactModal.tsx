@@ -86,7 +86,7 @@ const AddContactModal: React.FC<AddContactModalProps> = ({ isOpen, onClose }) =>
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   Name
@@ -105,7 +105,7 @@ const AddContactModal: React.FC<AddContactModalProps> = ({ isOpen, onClose }) =>
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                   Email
                 </label>
                 <input
